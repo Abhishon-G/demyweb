@@ -3,8 +3,7 @@ FROM ubuntu:20.04
 # Update the package lists and install OpenJDK 17 and Maven
 RUN apt-get update && apt-get install -y openjdk-17-jdk maven
 
-# Clean up APT when done
-RUN apt-get clean
+RUN mvn clean install
 
 # Set the working directory
 WORKDIR /app
