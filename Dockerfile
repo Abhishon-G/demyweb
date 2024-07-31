@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-RUN sudo apt install openjdk-17-jdk
+RUN apt install openjdk-17-jdk
 RUN apt update
 RUN apt install maven -y
 RUN mvn clean install
