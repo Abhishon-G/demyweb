@@ -1,10 +1,25 @@
 FROM ubuntu:20.04
-RUN apt update
-RUN apt install openjdk-17-jdk -y
-RUN apt update
-RUN apt install maven -y
-RUN mvn clean install
+
+# Update the package lists and install OpenJDK 17 and Maven
+RUN apt-get update && apt-get install -y openjdk-17-jdk maven
+
+# Clean up APT when done
+RUN apt-get clean
+
+# Set the working directory
 WORKDIR /app
+
+# Copy the application source code to the image
+COPY . /app
+
+# Build the application using Maven
+RUN mvn clean install
+
+# Copy the WAR file to the appropriate location
 COPY target/*.war /app/app.war
+
+# Expose the necessary port
 EXPOSE 8079
-CMD ["java", "- jar" ,"/app/app.war"]
+
+# Set the command to run the application
+CMD ["java", "-jar", "/app/app.war"]
