@@ -7,4 +7,4 @@ RUN mvn clean install
 WORKDIR /app
 COPY target/*.war /app/app.war
 EXPOSE 8079
-CMD ["Java","- jar"  ,"/app/app.war"]
+CMD ["java", "- jar" ,"/app/app.war"]
