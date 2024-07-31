@@ -15,11 +15,8 @@ COPY . /app
 # Build the application using Maven
 RUN mvn clean install
 
-# Copy the WAR file to the appropriate location
-COPY target/*.war /app/app.war
-
 # Expose the necessary port
 EXPOSE 8079
 
 # Set the command to run the application
-CMD ["java", "-jar", "/app/app.war"]
+CMD ["java", "-jar", "target/Demy-0.0.1-SNAPSHOT.war"]
