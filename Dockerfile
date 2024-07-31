@@ -1,4 +1,4 @@
-FROM Ubuntu:20.04
+FROM ubuntu:20.04
 RUN apt install openjdk-11-jdk -y
 RUN apt update
 RUN apt install maven -y
